@@ -9,15 +9,6 @@
     --color-brand2: #6adfff;
     --sidbar-width: 240px;
     --font-base: "Bai Jamjuree";
-
-    /* --color-body: #39c4e3;
-    --color-heading: #39c4e3;
-    --color-base: #033f47;
-    --color-base2: #022a30;
-    --color-brand: #6adfff;
-    --color-brand2: #6adfff;
-    --sidbar-width: 240px;
-    --font-base: "Bai Jamjuree"; */
 }
 
 body {
@@ -208,3 +199,4 @@ img {
     border-radius: 100px;
     font-size: 24px;
 }
+
