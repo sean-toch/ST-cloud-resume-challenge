@@ -200,3 +200,11 @@ img {
     font-size: 24px;
 }
 
+#view-count {
+    color: var(--color-brand2);
+}
+
+#view-header {
+    color: var(--color-brand2);
+}
+

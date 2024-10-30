@@ -14,6 +14,7 @@
 
 <body data-bs-spy="scroll" data-bs-target=".navbar">
 
+
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container flex-lg-column">
@@ -27,7 +28,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto flex-lg-column text-lg-center">
-
                     <li class="nav-item">
                         <a class="nav-link" href="#home">Home</a>
                     </li>
@@ -46,19 +46,21 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#crc">Cloud Resume</a>
                     </li>
-
+                    <li class="mt-4">
+                        <h5 id="view-header">View Count: <span id="view-count">Loading...</span></h5>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- //NAVBAR -->
+
 
     <!-- CONTENT WRAPPER -->
     <div id="content-wrapper">
 
+
         <!-- HOME -->
         <section id="home" class="full-height px-lg-5">
-
             <div class="container">
                 <div class="row">
                     <div class="col-lg-10">
@@ -73,9 +75,8 @@
                     </div>
                 </div>
             </div>
-
         </section>
-        <!-- //HOME -->
+
 
         <!-- ABOUT -->
         <section id="about" class="full-height px-lg-5">
@@ -141,6 +142,7 @@
                 </div>
             </div>
         </section>
+
 
         <!-- PROJECTS -->
         <section id="proj" class="full-height px-lg-5">
@@ -229,6 +231,7 @@
 
             </div>
         </section>
+
 
         <!-- EDUCATION -->
         <section id="edu" class="full-height px-lg-5">
@@ -348,6 +351,7 @@
             </div>
         </section>
 
+
         <!-- CLOUD RESUME CHALLENGE -->
         <section id="crc" class="full-height px-lg-5">
             <div class="container">
@@ -450,7 +454,6 @@
             </div>
         </section>
 
-
         <footer class="py-4 px-lg-4">
             <div class="container">
                 <div class="row gy-4 justify-content-between">
@@ -465,13 +468,30 @@
             </div>
         </footer>
     </div>
-    <!-- //CONTENT WRAPPER -->
 
 
-
+    <!-- JAVASCRIPT CALLS -->
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/js/aos.js"></script>
     <script src="./assets/js/main.js"></script>
-</body>
+    <script>
 
+        //Calls View Count API endpoint and return the view count
+        async function getViewCount() {
+            try {
+                const response = await fetch('API Endoint');
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('view-count').textContent = data.viewCount;
+                } else {
+                    document.getElementById('view-count').textContent = 'Unavailable';
+                }
+            } catch (error) {
+                document.getElementById('view-count').textContent = 'Unavailable';
+            }
+        }
+        getViewCount();
+
+    </script>
+</body>
 </html>
