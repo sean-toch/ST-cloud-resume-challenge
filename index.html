@@ -47,7 +47,7 @@
                         <a class="nav-link" href="#crc">Cloud Resume</a>
                     </li>
                     <li class="mt-4">
-                        <h5 id="view-header">View Count: <span id="view-count">Loading...</span></h5>
+                        <h5 id="view-header">Views: <span id="view-count">Loading...</span></h5>
                     </li>
                 </ul>
             </div>
@@ -477,20 +477,16 @@
     <script>
 
         //Calls View Count API endpoint and return the view count
-        async function getViewCount() {
-            try {
-                const response = await fetch('API Endoint');
-                if (response.ok) {
-                    const data = await response.json();
-                    document.getElementById('view-count').textContent = data.viewCount;
-                } else {
-                    document.getElementById('view-count').textContent = 'Unavailable';
-                }
-            } catch (error) {
-                document.getElementById('view-count').textContent = 'Unavailable';
-            }
+        const counter = document.querySelector("#view-count")
+        async function updateCount() {
+            let response = await fetch("https://2hvooukjb2g3p5d7hmamcailu40fmgod.lambda-url.us-east-1.on.aws/")
+            console.log(response);
+            let data = await response.json();
+            console.log(data);
+            counter.textContent = data;
         }
-        getViewCount();
+
+        updateCount();
 
     </script>
 </body>
